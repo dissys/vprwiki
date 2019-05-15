@@ -5,7 +5,7 @@ Here, we describe various components of VPR2, the new version of the Virtual Par
 <span style="color:blue">**The project is under development**</span> The following sections provides descriptions of VPR2 components and how they can be accessed.
 
 ## VPR2 Web Service
-VPR2 web service is REST-based and includes several methdods that can be accessed by computational tools. The development version is available at [http://iroh.scam.keele.ac.uk/virtualparts-ws/webapi](http://iroh.scam.keele.ac.uk/virtualparts-ws/webapi). Please see list of available methods as a Web Application Description Language (WADL) file at [http://iroh.scam.keele.ac.uk/virtualparts-ws/webapi/application.wadl](http://iroh.scam.keele.ac.uk/virtualparts-ws/webapi/application.wadl).
+VPR2 web service is REST-based and includes several methdods that can be accessed by computational tools. The development version is available at [http://v2.virtualparts.org/virtualparts-ws/webapi](http://v2.virtualparts.org/virtualparts-ws/webapi). Please see list of available methods as a Web Application Description Language (WADL) file at [http://v2.virtualparts.org/virtualparts-ws/webapi/application.wadl](http://v2.virtualparts.org/virtualparts-ws/webapi/application.wadl).
 
 ## VPR2 Web Service Client
 Although, the Web service can directly be accessed by tools, we also provide a Java client library to facilitate programmatic access. The client library is provided as a single Java Jar file that contain all dependencies and can be downloaded from [https://github.com/dissys/vprwiki](https://github.com/dissys/vprwiki/).

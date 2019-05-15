@@ -16,6 +16,7 @@ Although, the Web service can directly be accessed by tools, we also provide a J
 VPR2 is a standalone library that can be used to populate SBOL designs with additional details from remote SBOL repositories. VPR2 Data is also included as a dependency as part of the client library and is ideal for users who want to implement their own modelling abstractions. VPR2 Data is available at [https://github.com/ICO2S/vpr-data](https://github.com/ICO2S/vpr-data).
 
 ## VPR2 Repository
+VPR2 has its own default repository and is also available as a Web based repository. The repository is available at [http://v2.virtualparts.org](http://v2.virtualparts.org).
 
 ## Using the VPR2 Web Service Client
 The Web service can be used to create models directly from SBOL files. Basic information about designs in the form of SBOL documents can also be used to retreve detailed information from a specified repository.

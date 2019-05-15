@@ -7,7 +7,7 @@ Here, we describe various components of VPR2, the new version of the Virtual Par
 The following sections provides descriptions of VPR2 components and how they can be accessed.
 
 ## VPR2 Repository
-VPR2 has its own default repository and is also available as a Web based repository. The repository is available at [http://v2.virtualparts.org](http://v2.virtualparts.org).
+VPR2 has its own data repository and is accessible as a web application. The repository is available at [http://v2.virtualparts.org](http://v2.virtualparts.org) and allows searching for parts, and downloading computational models and genetic descriptions of these parts. 
 
 ## VPR2 Web Service
 VPR2 web service is REST-based and includes several methdods that can be accessed by computational tools. The development version is available at [http://v2.virtualparts.org/virtualparts-ws/webapi](http://v2.virtualparts.org/virtualparts-ws/webapi). Please see list of available methods as a Web Application Description Language (WADL) file at [http://v2.virtualparts.org/virtualparts-ws/webapi/application.wadl](http://v2.virtualparts.org/virtualparts-ws/webapi/application.wadl).

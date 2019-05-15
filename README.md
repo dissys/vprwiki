@@ -2,7 +2,9 @@
 Virtual parts are modular and reusable mathematical models of biological parts.
 Here, we describe various components of VPR2, the new version of the Virtual Parts Repository. The previous version is available at virtualparts.org. VPR2 has a Web-based repository, a Web service and a data layer. Both the Web service and the data layer can be used to connect to different synbio repositories that are enabled by the Synthetic Biology Open Language (SBOL).
 
-<span style="color:blue">**The project is under development**</span> The following sections provides descriptions of VPR2 components and how they can be accessed.
+<span style="color:blue">**Please note that the VPR2 project is under development**</span>.
+
+The following sections provides descriptions of VPR2 components and how they can be accessed.
 
 ## VPR2 Web Service
 VPR2 web service is REST-based and includes several methdods that can be accessed by computational tools. The development version is available at [http://v2.virtualparts.org/virtualparts-ws/webapi](http://v2.virtualparts.org/virtualparts-ws/webapi). Please see list of available methods as a Web Application Description Language (WADL) file at [http://v2.virtualparts.org/virtualparts-ws/webapi/application.wadl](http://v2.virtualparts.org/virtualparts-ws/webapi/application.wadl).

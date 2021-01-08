@@ -42,7 +42,7 @@ SBMLDocument sbmlDoc=VPRWebServiceClient.getModelUsingDataFromStack(target, sbol
 ```
 
 ### Creating SBOL designs
-SBOL designs can be created using different SBOL tools. The libSBOLj java library is included as part of the VPR2 and can be used to create SBOL designs. Alternatively, simple designs can be constructed via the SVPWrite language using the following notation. Note that each part id-type pair MUST be separated by a semicolon. The LAST pair MUST NOT be followed by a semicolon.
+VPR2's client library is ideal to create SBOL designs and to retrieve SBML models (see "Using the VPR2 Web Service Client"). This library provides both the syntax and the semantics when creating SBOL designs. Please note that that the libSBOLj java library is already included as part of the VPR2 client library. Alternatively, simple designs can be constructed via the SVPWrite language using the following notation. Note that each part id-type pair MUST be separated by a semicolon. The LAST pair MUST NOT be followed by a semicolon.
 ```
 <partid>:<parttype>
 ```
@@ -98,6 +98,19 @@ The VPR returns an object representing the model using rhe jSBML library. This m
 ```java
 SBMLWriter.write(sbmlDoc, "repressibleTU_Disconnected.xml",' ', (short) 2); 
 ```
-  
+
+### Creating SBOL designs using external tools
+SBOL designs can also be created using different SBOL tools and libraries in order to use the VPR2 web service via HTTP directly. VPR2 requires that such SBOL designs provide the necessary semantics about the types, and roles, of biological components and molecular interactions.
+
+| Part      | SBOL Component type | SBOL Component Role|
+| ----------- | ----------- |----------- |
+| Promoter | http://www.biopax.org/release/biopax-level3.owl#DnaRegion | http://identifiers.org/so/SO:0000167 |
+| CDS | http://www.biopax.org/release/biopax-level3.owl#DnaRegion | http://identifiers.org/so/SO:0000316 |
+| RBS | http://www.biopax.org/release/biopax-level3.owl#DnaRegion | http://identifiers.org/so/SO:0000139 |
+| Terminator | http://www.biopax.org/release/biopax-level3.owl#DnaRegion | http://identifiers.org/so/SO:0000141 |
+| Operator | http://www.biopax.org/release/biopax-level3.owl#DnaRegion | http://identifiers.org/so/SO:0000167 |
+| Shim | http://www.biopax.org/release/biopax-level3.owl#DnaRegion | http://identifiers.org/so/SO:0000167 |
+| EngineeredRegion | http://www.biopax.org/release/biopax-level3.owl#DnaRegion | http://identifiers.org/so/SO:0000804 |
+| Protein | http://www.biopax.org/release/biopax-level3.owl#Protein |  |
 
 

@@ -134,65 +134,37 @@ SBOL designs can also be created using different SBOL tools and libraries in ord
 
 Interaction types should be set as below. In addition, each interaction includes a list of participants and how their roles should be set.
 * Genetic Production : http://identifiers.org/biomodels.sbo/SBO:0000589
-
-  CDS Participation Role: http://identifiers.org/biomodels.sbo/SBO:0000645
-  
-  Product Participation Role: http://identifiers.org/biomodels.sbo/SBO:0000011
-  
+  * CDS Participation Role: http://identifiers.org/biomodels.sbo/SBO:0000645
+  * Product Participation Role: http://identifiers.org/biomodels.sbo/SBO:0000011
 * Promoter repression: http://identifiers.org/biomodels.sbo/SBO:0000169
-
-  TF Participation Role: http://identifiers.org/biomodels.sbo/SBO:0000020
-  
-  Promoter Participation Role: http://identifiers.org/biomodels.sbo/SBO:0000642
-  
+  * TF Participation Role: http://identifiers.org/biomodels.sbo/SBO:0000020 
+  * Promoter Participation Role: http://identifiers.org/biomodels.sbo/SBO:0000642
 * Promoter activation:http://identifiers.org/biomodels.sbo/SBO:0000170
-
-  TF Participation Role: http://identifiers.org/biomodels.sbo/SBO:0000459
-  
-  Promoter Participation Role: http://identifiers.org/biomodels.sbo/SBO:0000643
-  
+  * TF Participation Role: http://identifiers.org/biomodels.sbo/SBO:0000459
+  * Promoter Participation Role: http://identifiers.org/biomodels.sbo/SBO:0000643
 * Protein-DNA binding: http://identifiers.org/biomodels.sbo/SBO:0000177
-
-  Protein Participation Role: http://identifiers.org/biomodels.sbo/SBO:0000010
-  
-  DNA Participation Role: http://identifiers.org/biomodels.sbo/SBO:0000010
-  
-  Protein-DNA Complex Participation Role: http://identifiers.org/biomodels.sbo/SBO:0000011
-  
-* Complex formation between two biological molecules, except DNA components: http://identifiers.org/biomodels.sbo/SBO:0000177
-  
-  Molecule 1 Participation Role: http://identifiers.org/biomodels.sbo/SBO:0000010
-  
-  Molecule 2 Role: http://identifiers.org/biomodels.sbo/SBO:0000010
-  
-  Molecule 1 - Molecule 2 Complex Participation Role: http://identifiers.org/biomodels.sbo/SBO:0000011
-  
+  * Protein Participation Role: http://identifiers.org/biomodels.sbo/SBO:0000010
+  * DNA Participation Role: http://identifiers.org/biomodels.sbo/SBO:0000010
+  * Protein-DNA Complex Participation Role: http://identifiers.org/biomodels.sbo/SBO:0000011
+* Complex formation between two biological molecules, except DNA components: http://identifiers.org/biomodels.sbo/SBO:0000177  
+  * Molecule 1 Participation Role: http://identifiers.org/biomodels.sbo/SBO:0000010
+  * Molecule 2 Role: http://identifiers.org/biomodels.sbo/SBO:0000010
+  * Molecule 1 - Molecule 2 Complex Participation Role: http://identifiers.org/biomodels.sbo/SBO:0000011
 * Complex formation between two biological molecules involving a modifier (e.g. IPTG) except DNA components: http://identifiers.org/biomodels.sbo/SBO:0000177
+  * Molecule Participation Role: http://identifiers.org/biomodels.sbo/SBO:0000010
+  * Modifier Role: http://identifiers.org/biomodels.sbo/SBO:0000019
+  * Molecule-Modifier Complex Participation Role: http://identifiers.org/biomodels.sbo/SBO:0000011
+* Dimerisation : http://identifiers.org/biomodels.sbo/SBO:0000177 
+  * Molecule Participation Role: http://identifiers.org/biomodels.sbo/SBO:0000010
+  * Dimer Participation Role: http://identifiers.org/biomodels.sbo/SBO:0000011
+* Phosphorylation:  http://identifiers.org/biomodels.sbo/SBO:0000216  
+  * Donor Participation Role: http://identifiers.org/psimi/MI:0842
+  * Acceptor Participation Role: http://identifiers.org/psimi/MI:0843
+* Phosphorylation with Modifier:  http://identifiers.org/biomodels.sbo/SBO:0000216 
+  * Modifier Participation Role: http://identifiers.org/biomodels.sbo/SBO:0000019
+  * Acceptor Participation Role: http://identifiers.org/psimi/MI:0843
+* Auto dephosphorylation: http://identifiers.org/biomodels.sbo/SBO:0000330 
+  * Donor Participation Role: http://identifiers.org/psimi/MI:0842
   
-  Molecule Participation Role: http://identifiers.org/biomodels.sbo/SBO:0000010
   
-  Modifier Role: http://identifiers.org/biomodels.sbo/SBO:0000019
   
-  Molecule - Modifier Complex Participation Role: http://identifiers.org/biomodels.sbo/SBO:0000011
-  
-* Dimerisation : http://identifiers.org/biomodels.sbo/SBO:0000177
-  
-  Molecule Participation Role: http://identifiers.org/biomodels.sbo/SBO:0000010
-  
-  Dimer Participation Role: http://identifiers.org/biomodels.sbo/SBO:0000011
-  
-* Phosphorylation:  http://identifiers.org/biomodels.sbo/SBO:0000216
-  
-  Donor Participation Role: http://identifiers.org/psimi/MI:0842
-  
-  Acceptor Participation Role: http://identifiers.org/psimi/MI:0843
-  
-* Phosphorylation with Modifier:  http://identifiers.org/biomodels.sbo/SBO:0000216
-  
-  Modifier Participation Role: http://identifiers.org/biomodels.sbo/SBO:0000019
-  
-  Acceptor Participation Role: http://identifiers.org/psimi/MI:0843
-  
-* Auto dephosphorylation: http://identifiers.org/biomodels.sbo/SBO:0000330
-  
-  Donor Participation Role: http://identifiers.org/psimi/MI:0842

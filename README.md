@@ -228,7 +228,7 @@ curl  -X POST "http://virtualparts.org/virtualparts-ws/webapi/model/sbol"
 ## Ex3: Using a specified constraints repository - connected
 In this example, a SynBioHub instance instance with parts and corresponding interaction data is used.
 
-### Ex2: Retrieving the model using a specified remote repository - via the VPR2-WS Client API
+### Ex3: Retrieving the model using a specified remote repository - via the VPR2-WS Client API
 Specifyihg the types and order of parts to r
 ```java
 String svpDesign="BO_2685:prom;BO_27783:rbs;BO_32077:cds;BO_4257:ter";
@@ -241,5 +241,30 @@ SBMLDocument sbmlDoc=VPRWebServiceClient.getModelUsingDataFromStack(target, sbol
 The content of the svpDesign variable. Each part is defined using its URI from the SynBioHub repository.
 ```
 <https://synbiohub.org/public/bsu/BO_2685/1>:prom;<https://synbiohub.org/public/bsu/BO_27783/1>:rbs;<https://synbiohub.org/public/bsu/BO_32077/1>:cds;<https://synbiohub.org/public/bsu/BO_4257/1>:ter
+```
 
+### Ex3: Using the Curl command line tool and the VPR2-WS (Input data is SBOL)
+```
+curl  -X POST "http://virtualparts.org/virtualparts-ws/webapi/model/sbol_fromstack" 
+		--data-urlencode sbol@repressibleTU_Connected.rdf 
+		-d 'modeltype=sbml_l3'
+		-d 'abstractionlevel=simple'
+		-d 'stackuri=https://synbiohub.org/sparql'
+	> repressibleTU_Connected.xml
+```
+
+### Ex3: Using the Curl command line tool and the VPR2-WS (Input data is SVPWrite)
+repressibleTU_Connected.svp:
+```
+<https://synbiohub.org/public/bsu/BO_2685/1>:prom;<https://synbiohub.org/public/bsu/BO_27783/1>:rbs;<https://synbiohub.org/public/bsu/BO_32077/1>:cds;<https://synbiohub.org/public/bsu/BO_4257/1>:ter
+```
+
+Curl command:
+```
+curl  -X POST "http://virtualparts.org/virtualparts-ws/webapi/model/svpwrite_fromstack" 
+		--data-urlencode svpwrite@repressibleTU_Connected.svp 
+		-d 'modeltype=sbml_l3' 
+		-d 'abstractionlevel=simple' 
+		-d 'stackuri=https://synbiohub.org/sparql'
+	> repressibleTU_ConnectedSVP.xml
 ```

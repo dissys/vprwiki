@@ -225,8 +225,8 @@ curl  -X POST "http://virtualparts.org/virtualparts-ws/webapi/model/sbol"
 	> repressibleTU_Disconnected.xml
 ```
 
-## Ex3: Using a specified constraints repository - connected
-In this example, a SynBioHub instance instance with parts and corresponding interaction data is used.
+## Ex3: Using a specified constraints repository - connected (A negative autoregulatory circuit)
+In this example, a SynBioHub instance instance with parts and corresponding interaction data is used. The genetic circuit consists of a promoter, an RBS and a CDS. The CDS encodes for a TF, which inhibits the promoter.
 
 ### Ex3: Retrieving the model using a specified remote repository - via the VPR2-WS Client API
 Specifyihg the types and order of parts to r

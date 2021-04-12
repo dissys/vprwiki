@@ -9,7 +9,7 @@ The following sections provides descriptions of VPR2 components and how they can
 ## VPR2 Repository
 VPR2 has its own data repository and is accessible as a web application. The repository is available at [http://virtualparts.org](http://virtualparts.org) and allows searching for parts, and downloading computational models and genetic descriptions of these parts. 
 
-## VPR2 Web Service
+## VPR2 Web Service (VPR2-WS)
 VPR2 web service is REST-based and includes several methdods that can be accessed by computational tools. The development version is available at [http://virtualparts.org/virtualparts-ws/webapi](http://virtualparts.org/virtualparts-ws/webapi). Please see list of available methods as a Web Application Description Language (WADL) file at [http://virtualparts.org/virtualparts-ws/webapi/application.wadl](http://virtualparts.org/virtualparts-ws/webapi/application.wadl).
 
 ### VPR2 Web Service Methods
@@ -166,5 +166,31 @@ Interaction types should be set as below. In addition, each interaction includes
 * Auto dephosphorylation: http://identifiers.org/biomodels.sbo/SBO:0000330 
   * Donor Participation Role: http://identifiers.org/psimi/MI:0842
   
+# Examples
+Below you can find complete examples, using the Java web service client API or using the web service directly via the command line CURL command.
+## Ex1: A simple genetic production - disconnected
+This example shows how to create a simple genetic circuit that encodes for a protein.
+### Ex1: Using the VPR2-WS Client
+```java
+String design="prom1:prom;rbs1:rbs;cds1:cds;ter1:ter"; 
+WebTarget target=VPRWebServiceClient.getVPRWebServiceTarget(VPR_WS);
+SBMLDocument sbmlDoc=VPRWebServiceClient.getModel(target, design);
+SBMLWriter.write(sbmlDoc, "repressibleTU_DisconnectedSimple.xml",' ', (short) 2);  
+```
+
+### Ex1: Using the Curl command line tool and the VPR2-WS
+repressibleTU_DisconnectedSimple.svp file:
+```
+prom1:prom;rbs1:rbs;cds1:cds;ter1:ter
+```
+
+Curl command:
+```
+curl  -X POST "http://virtualparts.org/virtualparts-ws/webapi/model/svpwrite" 
+		--data-urlencode svpwrite@repressibleTU_DisconnectedSimple.svp 
+		-d 'modeltype=sbml_l3'
+		-d 'abstractionlevel=simple'
+	> repressibleTU_DisconnectedSimple.xml
+```
   
   

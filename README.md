@@ -168,6 +168,8 @@ Interaction types should be set as below. In addition, each interaction includes
   
 # Examples
 Below you can find complete examples, using the Java web service client API or using the web service directly via the command line CURL tool. As a result of each exmaple, an SBML model is generated. This model can be simulated using the COPASI tool.
+
+The examples files are available via the [wikiexamples folder] (https://github.com/dissys/vprwiki/tree/master/wikiexamples)
 ## Ex1: A simple genetic production - disconnected
 This example shows how to create a simple genetic circuit that encodes for a protein. 
 ### Ex1: Using the VPR2-WS Client API

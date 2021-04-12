@@ -167,10 +167,10 @@ Interaction types should be set as below. In addition, each interaction includes
   * Donor Participation Role: http://identifiers.org/psimi/MI:0842
   
 # Examples
-Below you can find complete examples, using the Java web service client API or using the web service directly via the command line CURL command.
+Below you can find complete examples, using the Java web service client API or using the web service directly via the command line CURL tool. As a result of each exmaple, an SBML model is generated. This model can be simulated using the COPASI tool.
 ## Ex1: A simple genetic production - disconnected
-This example shows how to create a simple genetic circuit that encodes for a protein.
-### Ex1: Using the VPR2-WS Client
+This example shows how to create a simple genetic circuit that encodes for a protein. 
+### Ex1: Using the VPR2-WS Client API
 ```java
 String design="prom1:prom;rbs1:rbs;cds1:cds;ter1:ter"; 
 WebTarget target=VPRWebServiceClient.getVPRWebServiceTarget(VPR_WS);
@@ -193,4 +193,53 @@ curl  -X POST "http://virtualparts.org/virtualparts-ws/webapi/model/svpwrite"
 	> repressibleTU_DisconnectedSimple.xml
 ```
   
-  
+### Ex2: Incorporating constraints between parts - disconnected
+This example builds upon the previous one by adding with molecular interactions.
+
+### Ex2: Adding molecular interactions and retrieving the corresponding model using the VPR2-WS Client API
+```java
+String design="prom1:prom;rbs1:rbs;cds1:cds;ter1:ter";
+SBOLDocument sbolDesign=SVPWriteHandler.convertToSBOL(design,"tu");
+     
+ComponentDefinition tf=sbolDesign.createComponentDefinition("tf", ComponentDefinition.PROTEIN);
+ComponentDefinition prom=sbolDesign.getComponentDefinition(getURI(sbolDesign, "prom1"));
+ComponentDefinition cds=sbolDesign.getComponentDefinition(getURI(sbolDesign, "cds1"));     
+         
+ModuleDefinition moduleDef=sbolDesign.createModuleDefinition("design_module");
+SBOLInteraction.createPromoterRepression(moduleDef,prom, tf);
+SBOLInteraction.createTranslationInteraction(moduleDef, cds, tf);
+
+WebTarget target=VPRWebServiceClient.getVPRWebServiceTarget(VPR_WS);
+SBMLDocument sbmlDoc=VPRWebServiceClient.getModel(target, sbolDesign);
+     
+SBOLWriter.write(sbolDesign, "repressibleTU_Disconnected.rdf");
+SBMLWriter.write(sbmlDoc, "repressibleTU_Disconnected.xml",' ', (short) 2); 
+```
+### Ex2: Using the Curl command line tool and the VPR2-WS
+It is assumed that the SBOL file including the description of the circuit and related molecular interactions exists.
+```
+curl  -X POST "http://virtualparts.org/virtualparts-ws/webapi/model/sbol" 
+		--data-urlencode sbol@repressibleTU_Disconnected.rdf 
+		-d 'modeltype=sbml_l3' 
+		-d 'abstractionlevel=simple' 
+	> repressibleTU_Disconnected.xml
+```
+
+## Ex3: Using a specified constraints repository - connected
+In this example, a SynBioHub instance instance with parts and corresponding interaction data is used.
+
+### Ex2: Retrieving the model using a specified remote repository - via the VPR2-WS Client API
+Specifyihg the types and order of parts to r
+```java
+String svpDesign="BO_2685:prom;BO_27783:rbs;BO_32077:cds;BO_4257:ter";
+svpDesign=getSVPDesign("https://synbiohub.org/public/bsu/%s/1",svpDesign);
+WebTarget target=VPRWebServiceClient.getVPRWebServiceTarget(VPR_WS);
+SBOLDocument sbolDesign=SVPWriteHandler.convertToSBOL(svpDesign,"tu");             
+SBMLDocument sbmlDoc=VPRWebServiceClient.getModelUsingDataFromStack(target, sbolDesign, "https://synbiohub.org/sparql");
+```
+
+The content of the svpDesign variable. Each part is defined using its URI from the SynBioHub repository.
+```
+<https://synbiohub.org/public/bsu/BO_2685/1>:prom;<https://synbiohub.org/public/bsu/BO_27783/1>:rbs;<https://synbiohub.org/public/bsu/BO_32077/1>:cds;<https://synbiohub.org/public/bsu/BO_4257/1>:ter
+
+```

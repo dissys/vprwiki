@@ -37,6 +37,7 @@ Although, the Web service can directly be accessed by tools, we also provide a J
 
 ## VPR2 Data
 VPR2 is a standalone library that can be used to populate SBOL designs with additional details from remote SBOL repositories. VPR2 Data is also included as a dependency as part of the client library and is ideal for users who want to implement their own modelling abstractions. VPR2 Data is available at [https://github.com/ICO2S/vpr-data](https://github.com/ICO2S/vpr-data).
+<img src="images/datamode.png" width="600" alt="Data mode">
 
 ## Using the VPR2 Web Service Client
 The Web service can be used to create models directly from SBOL files. Basic information about designs in the form of SBOL documents can also be used to retreve detailed information from a specified repository.
@@ -50,6 +51,7 @@ The following code creates an SBML model using an SBOL design as a parameter. Th
 WebTarget target = VPRWebServiceClient.getVPRWebServiceTarget(VPR_WS);
 SBMLDocument sbmlDoc = VPRWebServiceClient.getModel(target, sbolDesign);
 ```
+<img src="images/disconnectedmode.png" width="400" alt="Disconnected mode">
 
 ### Using the library in connected mode
 This option allows users to specify basic information about about genetic circuit design and retrive an SBML model using the information from a remote data repository, which may be the default VPR repository or another SBOL enabled repository such as a SynBioHub instance.
@@ -60,7 +62,7 @@ WebTarget target=VPRWebServiceClient.getVPRWebServiceTarget(VPR_WS);
 SBOLDocument sbolDesign=SVPWriteHandler.convertToSBOL(design,"tu");    	    	    	
 SBMLDocument sbmlDoc=VPRWebServiceClient.getModelUsingDataFromStack(target, sbolDesign, VPR_Repository);    	
 ```
-
+<img src="images/connectedmode.png" width="600" alt="Connected mode">
 ### Creating SBOL designs
 VPR2's client library is ideal to create SBOL designs and to retrieve SBML models (see "Using the VPR2 Web Service Client"). This library provides both the syntax and the semantics when creating SBOL designs. Please note that that the libSBOLj java library is already included as part of the VPR2 client library. Alternatively, simple designs can be constructed via the SVPWrite language using the following notation. Note that each part id-type pair MUST be separated by a semicolon. The LAST pair MUST NOT be followed by a semicolon.
 ```

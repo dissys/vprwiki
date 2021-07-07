@@ -33,7 +33,7 @@ The web service provides methods to retrieve models  and information about biolo
   * interaction/populate: Add interactions for a given genetic design
 
 ## VPR2 Web Service Client
-Although, the Web service can directly be accessed by tools, we also provide a Java client library to facilitate programmatic access. The client library is provided as a single Java Jar file that contain all dependencies and can be downloaded from [https://github.com/dissys/vprwiki/releases/tag/virtualparts-ws-client-2.0.5](https://github.com/dissys/vprwiki/releases/tag/virtualparts-ws-client-2.0.5).
+Although, the Web service can directly be accessed by tools, we also provide a Java client library to facilitate programmatic access. The client library is provided as a single Java Jar file that contain all dependencies and can be downloaded from [https://github.com/dissys/vprwiki/releases](https://github.com/dissys/vprwiki/releases).
 
 ## VPR2 Data
 VPR2 is a standalone library that can be used to populate SBOL designs with additional details from remote SBOL repositories. VPR2 Data is also included as a dependency as part of the client library and is ideal for users who want to implement their own modelling abstractions. VPR2 Data is available at [https://github.com/ICO2S/vpr-data](https://github.com/ICO2S/vpr-data).

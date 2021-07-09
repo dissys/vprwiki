@@ -8,10 +8,17 @@ The following sections provides descriptions of VPR2 components and how they can
 
 ## VPR2 Repository
 VPR2 has its own data repository and is accessible as a web application. The repository is available at [http://virtualparts.org](http://virtualparts.org) and allows searching for parts, and downloading computational models and genetic descriptions of these parts. 
-
+## VPR SPARQL Endpoint
+The SPARQL endpoint for VPR2 is available at [http://virtualparts.org/rdf4j-server/repositories/vpr28](http://virtualparts.org/rdf4j-server/repositories/vpr28).
+The URL can be used to submit SPARQL queries to VPR2.
+ 
 ## VPR2 Web Service (VPR2-WS)
 VPR2 web service is REST-based and includes several methdods that can be accessed by computational tools. The development version is available at [http://virtualparts.org/virtualparts-ws/webapi](http://virtualparts.org/virtualparts-ws/webapi). Please see list of available methods as a Web Application Description Language (WADL) file at [http://virtualparts.org/virtualparts-ws/webapi/application.wadl](http://virtualparts.org/virtualparts-ws/webapi/application.wadl).
 
+Please use the VPR2 SPARQL endpoint URL to fetch data from the local VPR2 repository using this web service. The following example uses the command-line curl command to submit requests to the VPR2 web service and relies on the VPR2 SPARQL endpoint:
+```
+curl  -X POST "http://virtualparts.org/virtualparts-ws/webapi/component/fetch" -d 'stackuri=http://virtualparts.org/rdf4j-server/repositories/vpr28' -d 'componenturi=http://www.bacillondex.org/BO_31362/1'
+```
 ### VPR2 Web Service Methods
 The web service provides methods to retrieve models  and information about biological parts and interactions. Some of the web service methods are summarised below.
 * Model -  via a repository

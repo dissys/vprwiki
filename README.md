@@ -249,7 +249,7 @@ It is assumed that the SBOL file including the description of the circuit and re
 curl -X POST "http://virtualparts.org/virtualparts-ws/webapi/model/sbol" --data-urlencode sbol@repressibleTU_Disconnected.rdf -d 'modeltype=sbml_l3' -d 'abstractionlevel=simple' > repressibleTU_Disconnected.xml
 ```
 
-The same command in multiple lines
+The same command in multiple lines:
 ```
 curl -X POST "http://virtualparts.org/virtualparts-ws/webapi/model/sbol" \
 		--data-urlencode sbol@repressibleTU_Disconnected.rdf \
@@ -277,12 +277,18 @@ The content of the svpDesign variable. Each part is defined using its URI from t
 ```
 
 ### Ex3: Using the Curl command line tool and the VPR2-WS (Input data is SBOL)
+
 ```
-curl  -X POST "http://virtualparts.org/virtualparts-ws/webapi/model/sbol_fromstack" 
-		--data-urlencode sbol@repressibleTU_Connected.rdf 
-		-d 'modeltype=sbml_l3'
-		-d 'abstractionlevel=simple'
-		-d 'stackuri=https://synbiohub.org/sparql'
+curl -X POST "http://virtualparts.org/virtualparts-ws/webapi/model/sbol_fromstack" --data-urlencode sbol@repressibleTU_Connected.rdf -d 'modeltype=sbml_l3' -d 'abstractionlevel=simple' -d 'stackuri=https://synbiohub.org/sparql' > repressibleTU_Connected.xml
+```
+
+The same command in multiple lines:
+```
+curl -X POST "http://virtualparts.org/virtualparts-ws/webapi/model/sbol_fromstack" \
+		--data-urlencode sbol@repressibleTU_Connected.rdf \
+		-d 'modeltype=sbml_l3' \
+		-d 'abstractionlevel=simple' \
+		-d 'stackuri=https://synbiohub.org/sparql' \
 	> repressibleTU_Connected.xml
 ```
 

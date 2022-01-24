@@ -244,11 +244,17 @@ SBMLWriter.write(sbmlDoc, "repressibleTU_Disconnected.xml",' ', (short) 2);
 ```
 ### Ex2: Using the Curl command line tool and the VPR2-WS
 It is assumed that the SBOL file including the description of the circuit and related molecular interactions exists.
+
 ```
-curl  -X POST "http://virtualparts.org/virtualparts-ws/webapi/model/sbol" 
-		--data-urlencode sbol@repressibleTU_Disconnected.rdf 
-		-d 'modeltype=sbml_l3' 
-		-d 'abstractionlevel=simple' 
+curl -X POST "http://virtualparts.org/virtualparts-ws/webapi/model/sbol" --data-urlencode sbol@repressibleTU_Disconnected.rdf -d 'modeltype=sbml_l3' -d 'abstractionlevel=simple' > repressibleTU_Disconnected.xml
+```
+
+The same command in multiple lines
+```
+curl -X POST "http://virtualparts.org/virtualparts-ws/webapi/model/sbol" \
+		--data-urlencode sbol@repressibleTU_Disconnected.rdf \
+		-d 'modeltype=sbml_l3' \
+		-d 'abstractionlevel=simple' \
 	> repressibleTU_Disconnected.xml
 ```
 

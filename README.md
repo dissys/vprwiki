@@ -300,10 +300,15 @@ repressibleTU_Connected.svp:
 
 Curl command:
 ```
-curl  -X POST "http://virtualparts.org/virtualparts-ws/webapi/model/svpwrite_fromstack" 
-		--data-urlencode svpwrite@repressibleTU_Connected.svp 
-		-d 'modeltype=sbml_l3' 
-		-d 'abstractionlevel=simple' 
-		-d 'stackuri=https://synbiohub.org/sparql'
-	> repressibleTU_ConnectedSVP.xml
+curl -X POST "http://virtualparts.org/virtualparts-ws/webapi/model/svpwrite_fromstack" --data-urlencode svpwrite@repressibleTU_Connected.svp -d 'modeltype=sbml_l3' -d 'abstractionlevel=simple' -d 'stackuri=https://synbiohub.org/sparql' > repressibleTU_ConnectedSVP.xml
+```
+
+The same command in multiple lines:
+```
+curl -X POST "http://virtualparts.org/virtualparts-ws/webapi/model/svpwrite_fromstack" \
+		--data-urlencode svpwrite@repressibleTU_Connected.svp \
+		-d 'modeltype=sbml_l3' \
+		-d 'abstractionlevel=simple' \
+		-d 'stackuri=https://synbiohub.org/sparql' \
+	> repressibleTU_Connected.xml
 ```

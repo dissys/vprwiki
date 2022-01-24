@@ -196,13 +196,28 @@ repressibleTU_DisconnectedSimple.svp file:
 prom1:prom;rbs1:rbs;cds1:cds;ter1:ter
 ```
 
-Curl command:
+Specify a genetic circuit as a curl parameter:
 ```
-curl  -X POST "http://virtualparts.org/virtualparts-ws/webapi/model/svpwrite" 
-		--data-urlencode svpwrite@repressibleTU_DisconnectedSimple.svp 
-		-d 'modeltype=sbml_l3'
-		-d 'abstractionlevel=simple'
-	> repressibleTU_DisconnectedSimple.xml
+curl -X POST "http://virtualparts.org/virtualparts-ws/webapi/model/svpwrite" --data-urlencode 'svpwrite=prom1:prom;rbs1:rbs;cds1:cds;ter1:ter' -d 'modeltype=sbml_l3' -d 'abstractionlevel=simple'
+```
+
+Specify a genetic circuit as a curl parameter that refers to the input SVPWrite file:
+```
+curl -X POST "http://virtualparts.org/virtualparts-ws/webapi/model/svpwrite" --data-urlencode svpwrite@repressibleTU_DisconnectedSimple.svp -d 'modeltype=sbml_l3' -d 'abstractionlevel=simple' 
+```
+
+Specify a genetic circuit as a curl parameter that refers to the input SVPWrite file. The output will be written to an SBML file.
+```
+curl -X POST "http://virtualparts.org/virtualparts-ws/webapi/model/svpwrite" --data-urlencode svpwrite@repressibleTU_DisconnectedSimple.svp -d 'modeltype=sbml_l3' -d 'abstractionlevel=simple' > repressibleTU_DisconnectedSimple.xml
+```
+
+Curl command with the parameters explained:
+```
+curl -X POST "http://virtualparts.org/virtualparts-ws/webapi/model/svpwrite"	--> The VPR web interface to use the SVPWrite strings
+		--data-urlencode svpwrite@repressibleTU_DisconnectedSimple.svp	-->svpwrite parameters include the local file name containing the design
+		-d 'modeltype=sbml_l3'	--> Model type is SBML L3
+		-d 'abstractionlevel=simple'	--> The VPR2 modelling abstraction is specified 
+	> repressibleTU_DisconnectedSimple.xml	--> Write the SBML output to repressibleTU_DisconnectedSimple.xml
 ```
   
 ### Ex2: Incorporating constraints between parts - disconnected
